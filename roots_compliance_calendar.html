@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roots Multiclean Inc — 2026 Compliance Calendar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#E05A00;
+  --orange-dark:#B84A00;
+  --orange-light:#FFF0E6;
+  --orange-mid:#FF7A1A;
+  --black:#111010;
+  --dark:#1C1B1A;
+  --mid:#3A3836;
+  --muted:#7A7570;
+  --border:#E0DCD6;
+  --bg:#F7F5F2;
+  --surface:#FFFFFF;
+  --surface2:#F0EDE8;
+  --federal:#1A3A6B;--federal-bg:#EAF0FA;
+  --payroll:#3B1F6B;--payroll-bg:#F0EAFA;
+  --sales:#6B3A00;--sales-bg:#FAF0E0;
+  --state:#1A5C2A;--state-bg:#E8F5EC;
+  --labor:#6B1F1A;--labor-bg:#FAE8E8;
+  --license:#6B1A4A;--license-bg:#FAE8F2;
+  --insurance:#0F5248;--insurance-bg:#E3F2F0;
+  --custom:#4A3500;--custom-bg:#FFF8E6;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;font-size:16px;line-height:1.6;}
+
+/* ── MASTHEAD ── */
+.masthead{background:#fff;color:var(--dark);padding:0;position:relative;overflow:hidden;border-bottom:3px solid var(--orange);box-shadow:0 2px 12px rgba(0,0,0,.07);}
+.masthead-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:stretch;justify-content:space-between;gap:0;flex-wrap:wrap;}
+.masthead-logo-area{display:flex;align-items:center;padding:1rem 1.5rem;gap:1.2rem;border-right:2px solid var(--orange-light);}
+.roots-logo-img{height:60px;width:auto;flex-shrink:0;object-fit:contain;}
+.masthead-title-area{flex:1;padding:1rem 1.5rem;display:flex;flex-direction:column;justify-content:center;}
+.co-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:3px;}
+.masthead h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:700;line-height:1;color:var(--black);text-transform:uppercase;letter-spacing:1px;}
+.masthead-meta{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);margin-top:4px;}
+.masthead-meta span{display:flex;align-items:center;gap:4px;}
+.dot{width:4px;height:4px;border-radius:50%;background:var(--orange);display:inline-block;}
+.masthead-actions{display:flex;align-items:center;gap:8px;padding:1rem 1.5rem;flex-wrap:wrap;border-left:2px solid var(--orange-light);}
+.view-toggle{display:flex;gap:4px;}
+.view-btn{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 15px;border:1.5px solid var(--border);border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;letter-spacing:.3px;}
+.view-btn:hover{border-color:var(--orange);color:var(--orange);}
+.view-btn.active{background:var(--orange);color:#fff;border-color:var(--orange);}
+.tb-btn{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 15px;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:all .2s;letter-spacing:.3px;}
+.btn-add{background:var(--orange);color:#fff;border:none;}
+.btn-add:hover{background:var(--orange-dark);}
+.btn-export{background:#fff;color:var(--black);border:1.5px solid var(--border);}
+.btn-export:hover{border-color:var(--orange);color:var(--orange);}
+.btn-import{background:#fff;color:var(--black);border:1.5px solid var(--border);}
+.btn-import:hover{border-color:var(--orange);color:var(--orange);}
+
+/* ── STATS ── */
+.stats-row{max-width:1200px;margin:0 auto;padding:1.2rem 2rem 0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;position:relative;overflow:hidden;}
+.stat-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--orange);}
+.stat-card .lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.stat-card .val{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:700;color:var(--dark);line-height:1;}
+.stat-card .sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.stat-card.next-deadline .val{font-size:1.3rem;padding-top:2px;}
+
+/* ── SEARCH ROW ── */
+.search-row{max-width:1200px;margin:.9rem auto 0;padding:0 2rem;}
+.search-wrap{position:relative;width:100%;}
+.search-wrap input{font-family:'Barlow',sans-serif;font-size:14px;width:100%;padding:9px 14px 9px 38px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--dark);outline:none;transition:border .2s;}
+.search-wrap input::placeholder{color:var(--muted);}
+.search-wrap input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(224,90,0,.1);}
+.search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none;}
+
+/* ── TOOLBAR ── */
+.toolbar{max-width:1200px;margin:.75rem auto 0;padding:0 2rem 1rem;display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;}
+.filter-group{display:flex;flex-direction:column;gap:5px;}
+.filter-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+
+/* Category buttons */
+.cat-btn-group{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.cat-filter-btn{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:6px 13px;border:1.5px solid var(--border);border-radius:20px;background:var(--surface);color:var(--muted);cursor:pointer;transition:all .18s;letter-spacing:.2px;white-space:nowrap;}
+.cat-filter-btn:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-light);}
+.cat-filter-btn.active{background:var(--orange);color:#fff;border-color:var(--orange);box-shadow:0 2px 8px rgba(224,90,0,.35);}
+.cat-filter-btn[data-cat="all"].active{background:var(--black);border-color:var(--black);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.cat-filter-btn[data-cat="federal"].active{background:var(--federal);border-color:var(--federal);color:#fff;}
+.cat-filter-btn[data-cat="payroll"].active{background:var(--payroll);border-color:var(--payroll);color:#fff;}
+.cat-filter-btn[data-cat="sales"].active{background:#8B5200;border-color:#8B5200;color:#fff;}
+.cat-filter-btn[data-cat="state"].active{background:var(--state);border-color:var(--state);color:#fff;}
+.cat-filter-btn[data-cat="labor"].active{background:var(--labor);border-color:var(--labor);color:#fff;}
+.cat-filter-btn[data-cat="license"].active{background:var(--license);border-color:var(--license);color:#fff;}
+.cat-filter-btn[data-cat="insurance"].active{background:var(--insurance);border-color:var(--insurance);color:#fff;}
+.cat-filter-btn[data-cat="custom"].active{background:var(--custom);border-color:var(--custom);color:#fff;}
+
+/* Status as dropdown */
+.filter-select{font-family:'Barlow',sans-serif;font-size:13px;padding:7px 12px;border:1.5px solid var(--border);border-radius:8px;background:var(--surface);color:var(--dark);cursor:pointer;outline:none;transition:border .2s;}
+.filter-select:focus{border-color:var(--orange);}
+
+/* ── MAIN ── */
+.main{max-width:1200px;margin:0 auto;padding:1.25rem 2rem 4rem;}
+.empty-state{text-align:center;padding:3rem;color:var(--muted);font-size:15px;background:var(--surface);border:1px solid var(--border);border-radius:12px;}
+
+/* ── CALENDAR ── */
+.cal-nav{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
+.cal-nav-btn{font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;padding:7px 16px;border:1.5px solid var(--border);border-radius:7px;background:var(--surface);color:var(--dark);cursor:pointer;transition:all .2s;}
+.cal-nav-btn:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-light);}
+.cal-month-label{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;flex:1;text-align:center;text-transform:uppercase;letter-spacing:1px;}
+.cal-today-btn{font-size:12px;font-weight:700;padding:6px 14px;border:1.5px solid var(--orange);border-radius:7px;background:transparent;color:var(--orange);cursor:pointer;font-family:'Barlow',sans-serif;transition:all .2s;letter-spacing:.3px;}
+.cal-today-btn:hover{background:var(--orange);color:#fff;}
+.cal-grid{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);background:var(--black);}
+.cal-wd{text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);padding:9px 4px;}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);}
+.cal-cell{min-height:105px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:6px;cursor:pointer;transition:background .15s;}
+.cal-cell:nth-child(7n){border-right:none;}
+.cal-cell:hover{background:#FFF5EE;}
+.cal-cell.other-month{background:var(--bg);}
+.cal-cell.other-month .cal-day-num{color:var(--border);}
+.cal-cell.today{background:#FFF5EE;}
+.cal-cell.today .cal-day-num{background:var(--orange);color:#fff;border-radius:50%;}
+.cal-cell.past-cell{opacity:.6;}
+.cal-day-num{font-size:12px;font-weight:700;width:26px;height:26px;display:flex;align-items:center;justify-content:center;margin-bottom:3px;font-family:'Barlow Condensed',sans-serif;}
+.cal-event-dot{font-size:10.5px;font-weight:600;padding:3px 6px;border-radius:4px;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4;display:flex;align-items:center;gap:4px;}
+.cal-event-dot .status-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.status-dot.done{background:#2A6B3C;}
+.status-dot.pending{background:var(--orange);}
+.cat-federal{background:var(--federal-bg);color:var(--federal);}
+.cat-payroll{background:var(--payroll-bg);color:var(--payroll);}
+.cat-sales{background:var(--sales-bg);color:var(--sales);}
+.cat-state{background:var(--state-bg);color:var(--state);}
+.cat-labor{background:var(--labor-bg);color:var(--labor);}
+.cat-license{background:var(--license-bg);color:var(--license);}
+.cat-insurance{background:var(--insurance-bg);color:var(--insurance);}
+.cat-custom{background:var(--custom-bg);color:var(--custom);}
+.cal-more{font-size:10px;color:var(--muted);font-weight:700;padding:1px 4px;}
+
+/* ── LIST VIEW ── */
+.month-block{margin-bottom:2rem;}
+.month-hdr{display:flex;align-items:center;gap:10px;margin-bottom:8px;padding-bottom:8px;border-bottom:2px solid var(--orange);flex-wrap:wrap;}
+.month-name{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:.5px;}
+.month-ct{font-size:11px;color:var(--muted);font-weight:600;}
+.month-status-btns{margin-left:auto;display:flex;gap:6px;}
+.month-stat-pill{font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;cursor:default;display:flex;align-items:center;gap:5px;}
+.month-stat-pill.done-pill{background:#EBF5EE;color:#1A5C2A;border:1px solid #B8DFC4;}
+.month-stat-pill.pending-pill{background:var(--orange-light);color:var(--orange-dark);border:1px solid #FFC999;}
+.past-month .month-hdr{border-bottom-color:var(--border);}
+.past-month .month-name{color:var(--muted);}
+.ev-list{display:flex;flex-direction:column;gap:6px;}
+.ev-row{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;display:grid;grid-template-columns:55px 110px 1fr auto;align-items:center;gap:10px;transition:box-shadow .2s,transform .15s;cursor:pointer;}
+.ev-row:hover{box-shadow:0 3px 14px rgba(0,0,0,.08);transform:translateY(-1px);}
+.ev-row.past-ev{opacity:.55;}
+.ev-row.modified{border-left:3px solid var(--orange);}
+.ev-row.ev-done{border-left:3px solid #2A6B3C;background:#FAFFF8;}
+.ev-row.ev-pending{border-left:3px solid var(--orange);}
+.ev-date-col{font-size:12px;font-weight:700;color:var(--muted);}
+.ev-badge{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 8px;border-radius:5px;text-align:center;white-space:nowrap;}
+.badge-federal{background:var(--federal-bg);color:var(--federal);}
+.badge-payroll{background:var(--payroll-bg);color:var(--payroll);}
+.badge-sales{background:var(--sales-bg);color:var(--sales);}
+.badge-state{background:var(--state-bg);color:var(--state);}
+.badge-labor{background:var(--labor-bg);color:var(--labor);}
+.badge-license{background:var(--license-bg);color:var(--license);}
+.badge-insurance{background:var(--insurance-bg);color:var(--insurance);}
+.badge-custom{background:var(--custom-bg);color:var(--custom);}
+.ev-info .ev-title{font-size:13.5px;font-weight:600;color:var(--dark);line-height:1.35;}
+.ev-info .ev-sub{font-size:11.5px;color:var(--muted);margin-top:2px;}
+.ev-info .ev-filed-ts{font-size:11px;color:#2A6B3C;margin-top:3px;font-weight:600;}
+.ev-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end;}
+.status-btn{font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all .2s;letter-spacing:.2px;}
+.status-btn.btn-done{background:#EBF5EE;color:#1A5C2A;border:1px solid #B8DFC4;}
+.status-btn.btn-done:hover,.status-btn.btn-done.active{background:#2A6B3C;color:#fff;border-color:#2A6B3C;}
+.status-btn.btn-pending{background:var(--orange-light);color:var(--orange-dark);border:1px solid #FFC999;}
+.status-btn.btn-pending:hover,.status-btn.btn-pending.active{background:var(--orange);color:#fff;border-color:var(--orange);}
+.edit-btn-row{background:none;border:1px solid var(--border);color:var(--muted);font-size:12px;padding:4px 10px;border-radius:5px;cursor:pointer;font-family:'Barlow',sans-serif;white-space:nowrap;transition:all .2s;display:inline-flex;}
+.edit-btn-row:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-light);}
+.del-btn-row{font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;padding:4px 9px;border:1.5px solid #F5C6C5;border-radius:6px;background:#FDECEA;color:#9B2A2A;cursor:pointer;white-space:nowrap;display:inline-flex !important;transition:all .2s;}
+.del-btn-row:hover{background:#F5C6C5;}
+
+/* ── DAY POPUP ── */
+.overlay{position:fixed;inset:0;background:rgba(17,16,16,.65);z-index:1000;display:none;align-items:center;justify-content:center;padding:1rem;}
+.overlay.open{display:flex;}
+.modal{background:var(--surface);border-radius:14px;max-width:560px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.22);max-height:90vh;overflow-y:auto;}
+.modal-hdr{padding:1.2rem 1.5rem .9rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;background:var(--black);border-radius:14px 14px 0 0;}
+.modal-hdr h2{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.5px;}
+.modal-dl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:rgba(255,255,255,.6);line-height:1;padding:2px 6px;border-radius:6px;}
+.modal-close:hover{color:#fff;}
+.modal-body{padding:1.2rem 1.5rem 1.5rem;}
+.modal-ev-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;margin-bottom:10px;}
+.modal-ev-card.ev-card-done{border-left:3px solid #2A6B3C;background:#FAFFF8;}
+.modal-ev-card.ev-card-pending{border-left:3px solid var(--orange);}
+.modal-ev-card .mc-title{font-size:14px;font-weight:600;color:var(--dark);}
+.modal-ev-card .mc-sub{font-size:12px;color:var(--muted);margin-top:3px;}
+.modal-ev-card .mc-meta{display:flex;align-items:center;gap:7px;margin-top:10px;flex-wrap:wrap;}
+.modal-ev-card .mc-filed{font-size:11px;color:#2A6B3C;font-weight:700;background:#EBF5EE;border:1px solid #B8DFC4;border-radius:5px;padding:3px 8px;margin-top:7px;}
+.modal-ev-card.modified-card{border-left:3px solid var(--orange);}
+.modal-empty{font-size:14px;color:var(--muted);padding:.4rem 0;font-style:italic;}
+.modal-add-hint{padding:.9rem 0 0;border-top:1px solid var(--border);margin-top:12px;}
+.modal-status-row{display:flex;gap:8px;margin-top:10px;padding-top:8px;border-top:1px solid var(--border);}
+.attachment-section{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
+.attachment-section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.attachment-section-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);}
+.attachment-section-note{font-size:12px;color:var(--muted);margin-top:3px;}
+.attachment-list{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+.attachment-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border:1px solid var(--border);border-radius:10px;background:var(--surface2);padding:10px 12px;}
+.attachment-meta{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1 1 220px;}
+.attachment-name{font-size:13px;font-weight:600;color:var(--dark);word-break:break-word;}
+.attachment-sub{font-size:11px;color:var(--muted);}
+.attachment-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;}
+.attachment-action-btn{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--orange);cursor:pointer;white-space:nowrap;transition:all .2s;}
+.attachment-action-btn:hover{background:var(--surface2);}
+.attachment-action-btn.danger{border-color:#F5C6C5;background:#FDECEA;color:#9B2A2A;}
+.attachment-action-btn.danger:hover{background:#F5C6C5;}
+.attachment-empty{font-size:13px;color:var(--muted);background:var(--surface2);border:1px dashed var(--border);border-radius:10px;padding:10px 12px;margin-top:10px;}
+.attachment-upload-btn{font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;padding:6px 10px;border-radius:6px;border:1.5px solid var(--orange);background:var(--orange-light);color:var(--orange);cursor:pointer;white-space:nowrap;transition:all .2s;}
+.attachment-upload-btn:hover{background:var(--orange);color:#fff;}
+.attachment-pill{font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;background:var(--orange-light);color:var(--orange);border:1px solid rgba(224,90,0,.25);display:inline-flex;align-items:center;gap:4px;}
+
+/* ── EDIT/ADD FORM ── */
+.form-overlay{position:fixed;inset:0;background:rgba(17,16,16,.65);z-index:1100;display:none;align-items:center;justify-content:center;padding:1rem;}
+.form-overlay.open{display:flex;}
+.form-modal{background:var(--surface);border-radius:14px;max-width:500px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.22);max-height:92vh;overflow-y:auto;}
+.form-hdr{background:var(--black);padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-radius:14px 14px 0 0;border-bottom:2px solid var(--orange);}
+.form-hdr h2{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.5px;}
+.form-close{background:none;border:none;font-size:22px;cursor:pointer;color:rgba(255,255,255,.6);line-height:1;padding:2px 6px;}
+.form-close:hover{color:#fff;}
+.form-body{padding:1.3rem 1.4rem;}
+.form-notice{font-size:12px;color:var(--orange-dark);background:var(--orange-light);border:1px solid #FFC999;border-radius:7px;padding:9px 13px;margin-bottom:14px;line-height:1.5;}
+.f-group{margin-bottom:1rem;}
+.f-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;display:block;}
+.f-ctrl{font-family:'Barlow',sans-serif;font-size:14px;width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;background:var(--bg);color:var(--dark);outline:none;transition:border .2s;}
+.f-ctrl:focus{border-color:var(--orange);}
+select.f-ctrl{cursor:pointer;}
+textarea.f-ctrl{resize:vertical;min-height:70px;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-footer{display:flex;gap:9px;justify-content:flex-end;padding-top:.5rem;align-items:center;}
+.btn-cancel{font-family:'Barlow',sans-serif;font-size:13px;padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;font-weight:600;}
+.btn-cancel:hover{background:var(--surface2);}
+.btn-save{font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;padding:8px 18px;border:none;border-radius:8px;background:var(--orange);color:#fff;cursor:pointer;transition:opacity .2s;}
+.btn-save:hover{opacity:.88;}
+.btn-reset{font-family:'Barlow',sans-serif;font-size:12px;padding:6px 12px;border:1.5px solid var(--border);border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;margin-right:auto;font-weight:600;}
+.btn-reset:hover{background:#F5C6C5;color:#9B2A2A;border-color:#F5C6C5;}
+.btn-delete{font-family:'Barlow',sans-serif;font-size:12px;padding:6px 12px;border:1.5px solid #F5C6C5;border-radius:6px;background:#FDECEA;color:#9B2A2A;cursor:pointer;font-weight:600;}
+.btn-delete:hover{background:#F5C6C5;}
+
+/* ── EXPORT MODAL ── */
+.exp-overlay{position:fixed;inset:0;background:rgba(17,16,16,.65);z-index:1200;display:none;align-items:center;justify-content:center;padding:1rem;}
+.exp-overlay.open{display:flex;}
+.exp-modal{background:var(--surface);border-radius:14px;max-width:440px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.22);}
+.exp-hdr{background:var(--black);padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-radius:14px 14px 0 0;border-bottom:2px solid var(--orange);}
+.exp-hdr h2{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.5px;}
+.exp-body{padding:1.4rem;}
+.exp-option{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:1rem 1.1rem;margin-bottom:10px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px;}
+.exp-option:hover{border-color:var(--orange);background:var(--orange-light);}
+.exp-icon{width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.exp-icon.xl{background:#E8F5EC;}
+.exp-icon.csv{background:#EAF0FA;}
+.exp-info .exp-title{font-size:14px;font-weight:600;color:var(--dark);}
+.exp-info .exp-desc{font-size:12px;color:var(--muted);}
+.exp-scope{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.exp-scope label{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:6px;padding:5px 11px;cursor:pointer;transition:all .2s;font-weight:500;}
+.exp-scope label:hover{border-color:var(--orange);}
+.exp-scope input[type=radio]:checked+span{color:var(--orange);font-weight:700;}
+
+footer{text-align:center;padding:1.4rem;font-size:12px;color:var(--muted);border-top:1px solid var(--border);background:var(--surface);}
+
+@media(max-width:680px){
+  .masthead-inner{flex-direction:column;}
+  .masthead-logo-area{border-right:none;border-bottom:2px solid var(--orange-light);}
+  .masthead-actions{border-left:none;}
+  .masthead,.stats-row,.toolbar,.main,.search-row{padding-left:1rem;padding-right:1rem;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .ev-row{grid-template-columns:1fr;gap:4px;}
+  .f-row{grid-template-columns:1fr;}
+  .cal-cell{min-height:65px;}
+  .month-status-btns{margin-left:0;margin-top:6px;}
+  .filter-group{min-width:0;flex:1 1 100%;}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-logo-area">
+      <img class="roots-logo-img" src="/mnt/user-data/uploads/eyJidWNrZXQiOiJhbGlnbmFibGV3ZWItcHJvZHVjdGlvbiIsImtleSI6ImJ1c2luZXNzZXMvYmFubmVycy9vcmlnaW5hbC83NTM2NzE4L3Jvb3RzbG9nby5qcGciLCJlZGl0cyI6eyJleHRyYWN0Ijp7ImxlZnQiOjAsInRvcCI6MCwid2lkdGgiOjEyNTYsImhlaWdodCI6.jfif" alt="Roots Multiclean - Adding Value" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex';">
+      <!-- Fallback SVG logo if image fails to load -->
+      <div id="logoFallback" style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:2px;">
+        <svg viewBox="0 0 160 80" width="120" height="60" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer frame top/bottom/left bars -->
+          <rect x="2" y="2" width="156" height="12" fill="#E05A00" rx="1"/>
+          <rect x="2" y="64" width="156" height="12" fill="#E05A00" rx="1"/>
+          <rect x="2" y="2" width="12" height="74" fill="#E05A00" rx="1"/>
+          <!-- Right S-shape bars -->
+          <rect x="146" y="2" width="12" height="46" fill="#E05A00" rx="1"/>
+          <rect x="120" y="42" width="38" height="12" fill="#E05A00"/>
+          <rect x="120" y="42" width="12" height="34" fill="#E05A00" rx="1"/>
+          <!-- R letter -->
+          <rect x="20" y="18" width="24" height="42" fill="#E05A00" rx="1"/>
+          <rect x="26" y="24" width="12" height="14" fill="#fff"/>
+          <rect x="34" y="38" width="12" height="22" fill="#fff"/>
+          <!-- O letter 1 -->
+          <rect x="50" y="18" width="24" height="42" fill="#E05A00" rx="1"/>
+          <rect x="56" y="24" width="12" height="30" fill="#fff"/>
+          <!-- O letter 2 -->
+          <rect x="80" y="18" width="24" height="42" fill="#E05A00" rx="1"/>
+          <rect x="86" y="24" width="12" height="30" fill="#fff"/>
+          <!-- T letter -->
+          <rect x="108" y="18" width="24" height="42" fill="#E05A00" rx="1"/>
+          <rect x="108" y="24" width="24" height="10" fill="#fff"/>
+          <rect x="116" y="34" width="8" height="26" fill="#fff"/>
+        </svg>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--black);">ADDING VALUE</div>
+      </div>
+    </div>
+    <div class="masthead-title-area">
+      <div class="co-label">Compliance Calendar</div>
+      <h1>Roots Multiclean Inc</h1>
+      <div class="masthead-meta">
+        <span><span class="dot"></span>Alabama, USA</span>
+        <span><span class="dot"></span>Federal · State</span>
+        <span><span class="dot"></span>2026</span>
+      </div>
+    </div>
+    <div class="masthead-actions">
+      <button class="tb-btn btn-export" onclick="openExport()">&#8659; Export</button>
+      <button class="tb-btn btn-import" onclick="openImport()">&#8657; Import Excel</button>
+      <button class="tb-btn btn-add" onclick="openAddForm()">&#43; Add Event</button>
+      <div class="view-toggle">
+        <button class="view-btn active" id="btnCal" onclick="setView('calendar')">&#128197; Calendar</button>
+        <button class="view-btn" id="btnList" onclick="setView('list')">&#9776; List</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 4 STAT CARDS: month-aware -->
+<div class="stats-row">
+  <div class="stat-card"><div class="lbl">Total for Month</div><div class="val" id="statTotal">—</div><div class="sub" id="statTotalSub">events this month</div></div>
+  <div class="stat-card"><div class="lbl">Completed</div><div class="val" id="statDone" style="color:#1A5C2A">—</div><div class="sub" id="statDoneSub">this month</div></div>
+  <div class="stat-card"><div class="lbl">Pending</div><div class="val" id="statPending" style="color:var(--orange)">—</div><div class="sub" id="statPendingSub">this month</div></div>
+  <div class="stat-card next-deadline"><div class="lbl">Next Deadline</div><div class="val" id="statNext">—</div><div class="sub" id="statNextSub">—</div></div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-row">
+  <div class="search-wrap">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="searchInput" placeholder="Search compliance events by title, description or category…">
+  </div>
+</div>
+
+<!-- TOOLBAR: Category as buttons, Status as dropdown -->
+<div class="toolbar">
+  <div class="filter-group">
+    <span class="filter-label">Category</span>
+    <div class="cat-btn-group" id="catBtnGroup">
+      <button class="cat-filter-btn active" data-cat="all" onclick="setCategoryFilter('all')">All</button>
+      <button class="cat-filter-btn" data-cat="federal" onclick="setCategoryFilter('federal')">Federal IRS</button>
+      <button class="cat-filter-btn" data-cat="payroll" onclick="setCategoryFilter('payroll')">Payroll / TDS</button>
+      <button class="cat-filter-btn" data-cat="sales" onclick="setCategoryFilter('sales')">Sales Tax</button>
+      <button class="cat-filter-btn" data-cat="state" onclick="setCategoryFilter('state')">State Income</button>
+      <button class="cat-filter-btn" data-cat="labor" onclick="setCategoryFilter('labor')">Labor / OSHA</button>
+      <button class="cat-filter-btn" data-cat="license" onclick="setCategoryFilter('license')">Licenses</button>
+      <button class="cat-filter-btn" data-cat="insurance" onclick="setCategoryFilter('insurance')">Insurance</button>
+      <button class="cat-filter-btn" data-cat="custom" onclick="setCategoryFilter('custom')">Custom</button>
+    </div>
+  </div>
+  <div class="filter-group" style="margin-left:auto;">
+    <span class="filter-label">Status</span>
+    <select class="filter-select" id="statusFilter" aria-label="Filter by status">
+      <option value="all">All statuses</option>
+      <option value="done">Completed</option>
+      <option value="pending">Pending</option>
+    </select>
+  </div>
+</div>
+
+<div class="main">
+  <div>
+  <div id="calendarView">
+    <div class="cal-nav">
+      <button class="cal-nav-btn" onclick="changeMonth(-1)">&#8592; Prev</button>
+      <div class="cal-month-label" id="calLabel">—</div>
+      <button class="cal-today-btn" onclick="goToday()">Today</button>
+      <button class="cal-nav-btn" onclick="changeMonth(1)">Next &#8594;</button>
+    </div>
+    <div class="cal-grid">
+      <div class="cal-weekdays">
+        <div class="cal-wd">Sun</div><div class="cal-wd">Mon</div><div class="cal-wd">Tue</div>
+        <div class="cal-wd">Wed</div><div class="cal-wd">Thu</div><div class="cal-wd">Fri</div><div class="cal-wd">Sat</div>
+      </div>
+      <div class="cal-days" id="calDays"></div>
+    </div>
+  </div>
+  <div id="listView" style="display:none"><div id="listBody"></div></div>
+  </div>
+</div>
+
+<!-- DAY POPUP -->
+<div class="overlay" id="dayOverlay" onclick="closeDayModal(event)">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div><div class="modal-dl" id="modalDayName">—</div><h2 id="modalDateTitle">Events</h2></div>
+      <button class="modal-close" onclick="closeDayModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div id="modalEvents"></div>
+      <div class="modal-add-hint">
+        <button class="tb-btn btn-add" style="font-size:13px;padding:7px 14px;" onclick="openAddFormDate()">&#43; Add event on this date</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT / ADD FORM -->
+<div class="form-overlay" id="formOverlay" onclick="closeFormModal(event)">
+  <div class="form-modal">
+    <div class="form-hdr">
+      <h2 id="formTitle">Edit Event</h2>
+      <button class="form-close" onclick="closeFormModal()">&times;</button>
+    </div>
+    <div class="form-body">
+      <div class="form-notice" id="formNotice" style="display:none">&#9432; You are editing a built-in compliance event. Changes are saved locally.</div>
+      <div class="f-row">
+        <div class="f-group">
+          <label class="f-label">Date *</label>
+          <input type="date" class="f-ctrl" id="fDate">
+        </div>
+        <div class="f-group">
+          <label class="f-label">Category *</label>
+          <select class="f-ctrl" id="fCat">
+            <option value="federal">Federal IRS</option>
+            <option value="payroll">Payroll / TDS</option>
+            <option value="sales">Sales Tax</option>
+            <option value="state">State Income</option>
+            <option value="labor">Labor / OSHA</option>
+            <option value="license">Licenses</option>
+            <option value="insurance">Insurance</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-group">
+        <label class="f-label">Event Title *</label>
+        <input type="text" class="f-ctrl" id="fTitle" placeholder="e.g. State permit renewal">
+      </div>
+      <div class="f-group">
+        <label class="f-label">Description / Notes</label>
+        <textarea class="f-ctrl" id="fSub" placeholder="Additional details…"></textarea>
+      </div>
+      <input type="hidden" id="fEditId">
+      <input type="hidden" id="fIsBase">
+      <div class="form-footer">
+        <button class="btn-reset" id="fResetBtn" style="display:none" onclick="resetBaseEvent()">&#8635; Reset to original</button>
+        <button class="btn-delete" id="fDelBtn" style="display:none" onclick="deleteEvent()">&#128465; Delete</button>
+        <button class="btn-cancel" onclick="closeFormModal()">Cancel</button>
+        <button class="btn-save" onclick="saveEvent()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPORT MODAL -->
+<div class="exp-overlay" id="expOverlay" onclick="closeExport(event)">
+  <div class="exp-modal">
+    <div class="exp-hdr">
+      <h2>Export Compliance Calendar</h2>
+      <button class="form-close" onclick="closeExport()">&times;</button>
+    </div>
+    <div class="exp-body">
+      <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Scope</div>
+      <div class="exp-scope">
+        <label><input type="radio" name="expScope" value="all" checked><span>All events</span></label>
+        <label><input type="radio" name="expScope" value="upcoming"><span>Upcoming only</span></label>
+        <label><input type="radio" name="expScope" value="filtered"><span>Current filter</span></label>
+      </div>
+      <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Format</div>
+      <div class="exp-option" onclick="doExport('xlsx')">
+        <div class="exp-icon xl">&#128202;</div>
+        <div class="exp-info">
+          <div class="exp-title">Excel (.xlsx)</div>
+          <div class="exp-desc">Full spreadsheet with colour-coded categories</div>
+        </div>
+      </div>
+      <div class="exp-option" onclick="doExport('csv')">
+        <div class="exp-icon csv">&#128196;</div>
+        <div class="exp-info">
+          <div class="exp-title">CSV (.csv)</div>
+          <div class="exp-desc">Plain comma-separated — opens in any spreadsheet app</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IMPORT MODAL -->
+<div class="exp-overlay" id="importOverlay" onclick="closeImport(event)">
+  <div class="exp-modal" style="max-width:500px;">
+    <div class="exp-hdr">
+      <h2>&#8657; Import Events from Excel</h2>
+      <button class="form-close" onclick="closeImport()">&times;</button>
+    </div>
+    <div class="exp-body">
+      <div style="background:var(--orange-light);border:1.5px solid #FFC999;border-radius:10px;padding:1rem 1.1rem;margin-bottom:14px;">
+        <div style="font-size:13px;font-weight:700;color:var(--orange-dark);margin-bottom:6px;">Step 1 — Download the template</div>
+        <div style="font-size:12px;color:var(--orange-dark);margin-bottom:10px;opacity:.85;">Use our Excel template so your data imports correctly. Fill in your events and save the file.</div>
+        <button onclick="downloadImportTemplate()" style="font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;padding:8px 16px;border:none;border-radius:8px;background:var(--orange);color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:7px;">&#128202; Download Excel Template</button>
+      </div>
+      <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Step 2 — Upload your filled file</div>
+      <div id="importDropZone" onclick="document.getElementById('importFileInput').click()"
+        style="border:2px dashed var(--border);border-radius:12px;padding:2rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg);"
+        ondragover="event.preventDefault();this.style.borderColor='var(--orange)';this.style.background='var(--orange-light)';"
+        ondragleave="this.style.borderColor='var(--border)';this.style.background='var(--bg)';"
+        ondrop="handleImportDrop(event)">
+        <div style="font-size:28px;margin-bottom:8px;">📂</div>
+        <div style="font-size:14px;font-weight:600;color:var(--dark);">Click or drag & drop your Excel file here</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;">.xlsx files only</div>
+      </div>
+      <input type="file" id="importFileInput" accept=".xlsx" style="display:none" onchange="handleImportFile(this.files[0])">
+      <div id="importPreview" style="display:none;margin-top:14px;"></div>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="attachmentInput" accept=".pdf,.xls,.xlsx,application/pdf,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple style="display:none">
+
+<footer>Roots Multiclean Inc &mdash; Alabama, USA &mdash; 2026 Compliance Calendar &mdash; <span style="color:var(--orange);font-weight:700;">Adding Value</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+// ══════════════════════════════════════════════
+//  BASE DATA — empty by default; import your own tasks
+// ══════════════════════════════════════════════
+const BASE = [];
+
+const CAT_LABELS = {federal:'Federal IRS',payroll:'Payroll/TDS',sales:'Sales Tax',state:'State Income',labor:'Labor/OSHA',license:'Licenses',insurance:'Insurance',custom:'Custom'};
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const WDAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const TODAY = new Date();
+TODAY.setHours(0,0,0,0);
+
+// ══════════════════════════════════════════════
+//  PERSISTENCE
+// ══════════════════════════════════════════════
+let overrides = JSON.parse(localStorage.getItem('mc_overrides') || '{}');
+let customEvents = JSON.parse(localStorage.getItem('mc_custom') || '[]');
+let deletedBaseIds = new Set(JSON.parse(localStorage.getItem('mc_deleted') || '[]'));
+let eventStatus = JSON.parse(localStorage.getItem('mc_status') || '{}');
+let attachmentMeta = JSON.parse(localStorage.getItem('mc_attachments') || '{}');
+let pendingAttachmentEventId = null;
+let attachmentDbPromise = null;
+const ATTACHMENT_DB = 'mc_calendar_attachments';
+const ATTACHMENT_STORE = 'files';
+
+function saveAll(){
+  localStorage.setItem('mc_overrides',JSON.stringify(overrides));
+  localStorage.setItem('mc_custom',JSON.stringify(customEvents));
+  localStorage.setItem('mc_deleted',JSON.stringify([...deletedBaseIds]));
+  localStorage.setItem('mc_status',JSON.stringify(eventStatus));
+  localStorage.setItem('mc_attachments',JSON.stringify(attachmentMeta));
+}
+
+function allEvents(){
+  const base = BASE
+    .filter(e=>!deletedBaseIds.has(e.id))
+    .map(e => overrides[e.id] ? {...e,...overrides[e.id],id:e.id,_base:true,_modified:true} : {...e,_base:true,_modified:false});
+  return [...base,...customEvents.map(e=>({...e,_base:false,_modified:false}))];
+}
+
+function getEvStatus(id){ return eventStatus[id] || {status:'pending',filedAt:null}; }
+
+function setEvStatus(id, status){
+  const now = new Date();
+  const filedAt = status==='done' ? now.toISOString() : null;
+  eventStatus[id] = {status, filedAt};
+  saveAll();
+  render();
+}
+
+function fmtDateTime(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' at '+d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+}
+
+function escapeHtml(value){
+  return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+
+function formatBytes(bytes){
+  if(bytes === null || bytes === undefined || Number.isNaN(Number(bytes))) return '';
+  if(bytes < 1024) return bytes + ' B';
+  const units = ['KB','MB','GB','TB'];
+  let size = bytes / 1024, unitIndex = 0;
+  while(size >= 1024 && unitIndex < units.length - 1){ size /= 1024; unitIndex++; }
+  return `${size.toFixed(size >= 10 ? 0 : 1)} ${units[unitIndex]}`;
+}
+
+function showToast(message, isError=false){
+  const existing = document.getElementById('appToast');
+  if(existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.id = 'appToast';
+  toast.textContent = message;
+  toast.style.cssText = `position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:${isError ? '#9B2A2A' : '#E05A00'};color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.25);max-width:min(92vw,560px);text-align:center;font-family:'Barlow',sans-serif;`;
+  document.body.appendChild(toast);
+  setTimeout(()=>{ if(toast.isConnected) toast.remove(); }, 3200);
+}
+
+function findEventById(id){ return allEvents().find(e=>e.id===id) || null; }
+function getAttachmentList(eventId){ return attachmentMeta[eventId] || []; }
+function isSupportedAttachment(file){
+  if(!file) return false;
+  const name = String(file.name || '').toLowerCase();
+  const type = String(file.type || '').toLowerCase();
+  return name.endsWith('.pdf')||name.endsWith('.xls')||name.endsWith('.xlsx')||type==='application/pdf'||type==='application/vnd.ms-excel'||type==='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+}
+function newAttachmentId(){ return 'att_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10); }
+
+function openAttachmentDb(){
+  if(!('indexedDB' in window)) return Promise.reject(new Error('IndexedDB not available'));
+  if(!attachmentDbPromise){
+    attachmentDbPromise = new Promise((resolve, reject)=>{
+      const request = indexedDB.open(ATTACHMENT_DB, 1);
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        if(!db.objectStoreNames.contains(ATTACHMENT_STORE)) db.createObjectStore(ATTACHMENT_STORE, { keyPath:'id' });
+      };
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => { attachmentDbPromise = null; reject(request.error || new Error('Failed to open attachment storage')); };
+    });
+  }
+  return attachmentDbPromise;
+}
+
+async function putAttachmentRecord(record){
+  const db = await openAttachmentDb();
+  return new Promise((resolve, reject)=>{
+    const tx = db.transaction(ATTACHMENT_STORE, 'readwrite');
+    tx.objectStore(ATTACHMENT_STORE).put(record);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+async function readAttachmentRecord(id){
+  const db = await openAttachmentDb();
+  return new Promise((resolve, reject)=>{
+    const tx = db.transaction(ATTACHMENT_STORE, 'readonly');
+    const req = tx.objectStore(ATTACHMENT_STORE).get(id);
+    req.onsuccess = () => resolve(req.result || null);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function deleteAttachmentRecords(ids){
+  if(!ids.length) return;
+  const db = await openAttachmentDb();
+  return new Promise((resolve, reject)=>{
+    const tx = db.transaction(ATTACHMENT_STORE, 'readwrite');
+    const store = tx.objectStore(ATTACHMENT_STORE);
+    ids.forEach(id=>store.delete(id));
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+async function purgeAttachmentsForEvent(eventId){
+  const files = attachmentMeta[eventId] || [];
+  delete attachmentMeta[eventId];
+  saveAll();
+  if(!files.length) return;
+  try{ await deleteAttachmentRecords(files.map(f=>f.id)); }catch(err){ console.warn('Attachment cleanup failed', err); }
+}
+
+function refreshAttachmentSection(eventId){
+  const ev = findEventById(eventId);
+  const overlay = document.getElementById('dayOverlay');
+  if(ev && selDate === ev.date && overlay && overlay.classList.contains('open')) openDayModal(ev.date);
+}
+
+function openAttachmentPicker(eventId){
+  if(getEvStatus(eventId).status !== 'done'){ showToast('Mark the task as completed before uploading documents.', true); return; }
+  pendingAttachmentEventId = eventId;
+  const input = document.getElementById('attachmentInput');
+  if(!input) return;
+  input.value = '';
+  input.click();
+}
+
+async function handleAttachmentSelection(fileList){
+  const eventId = pendingAttachmentEventId;
+  pendingAttachmentEventId = null;
+  const files = Array.from(fileList || []);
+  if(!eventId || !files.length) return;
+  const validFiles = files.filter(isSupportedAttachment);
+  if(!validFiles.length){ showToast('Please choose PDF or Excel files only.', true); return; }
+  const invalidCount = files.length - validFiles.length;
+  const existing = getAttachmentList(eventId).slice();
+  const added = [];
+  try{
+    for(const file of validFiles){
+      const meta = { id: newAttachmentId(), name: file.name, type: file.type || '', size: file.size || 0, uploadedAt: new Date().toISOString(), blob: file };
+      await putAttachmentRecord(meta);
+      added.push({ id: meta.id, name: meta.name, type: meta.type, size: meta.size, uploadedAt: meta.uploadedAt });
+    }
+  }catch(err){ showToast('Could not save the document: ' + err.message, true); return; }
+  attachmentMeta[eventId] = existing.concat(added);
+  saveAll(); render(); refreshAttachmentSection(eventId);
+  const extra = invalidCount ? ` ${invalidCount} unsupported file${invalidCount === 1 ? '' : 's'} skipped.` : '';
+  showToast(`${added.length} document${added.length === 1 ? '' : 's'} attached.${extra}`);
+}
+
+function renderAttachmentBadgeInline(eventId, status){
+  const count = getAttachmentList(eventId).length;
+  let html = '';
+  if(count) html += `<span class="attachment-pill">📎 ${count} doc${count===1?'':'s'}</span>`;
+  if(status === 'done') html += `<button class="attachment-upload-btn" onclick="event.stopPropagation();openAttachmentPicker('${eventId}')">Upload Docs</button>`;
+  return html;
+}
+
+function renderAttachmentPanel(eventId, status){
+  const files = getAttachmentList(eventId);
+  if(status !== 'done' && !files.length) return '';
+  const note = status === 'done' ? 'Upload PDFs or Excel files for this completed task.' : 'Documents attached to this task.';
+  const empty = status === 'done' ? '<div class="attachment-empty">No documents uploaded yet.</div>' : '<div class="attachment-empty">No documents stored.</div>';
+  return `<div class="attachment-section">
+    <div class="attachment-section-head">
+      <div><div class="attachment-section-title">Documents</div><div class="attachment-section-note">${note}</div></div>
+      ${status === 'done' ? `<button class="attachment-upload-btn" onclick="openAttachmentPicker('${eventId}')">Upload PDF / Excel</button>` : ''}
+    </div>
+    ${files.length ? `<div class="attachment-list">${files.map(file => `
+      <div class="attachment-row">
+        <div class="attachment-meta">
+          <div class="attachment-name">${escapeHtml(file.name)}</div>
+          <div class="attachment-sub">${formatBytes(file.size)}${file.uploadedAt ? ' &middot; ' + fmtDateTime(file.uploadedAt) : ''}</div>
+        </div>
+        <div class="attachment-actions">
+          <button class="attachment-action-btn" onclick="event.stopPropagation();downloadAttachment('${eventId}','${file.id}')">Download</button>
+          <button class="attachment-action-btn danger" onclick="event.stopPropagation();removeAttachment('${eventId}','${file.id}')">Remove</button>
+        </div>
+      </div>`).join('')}</div>` : empty}
+  </div>`;
+}
+
+async function downloadAttachment(eventId, attachmentId){
+  try{
+    const record = await readAttachmentRecord(attachmentId);
+    if(!record){ showToast('Document not found.', true); return; }
+    const url = URL.createObjectURL(record.blob);
+    const link = document.createElement('a'); link.href = url; link.download = record.name || 'document';
+    document.body.appendChild(link); link.click(); link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 1500);
+  }catch(err){ showToast('Could not open the document: ' + err.message, true); }
+}
+
+async function removeAttachment(eventId, attachmentId){
+  if(!confirm('Remove this attached document?')) return;
+  const files = getAttachmentList(eventId).filter(f=>f.id!==attachmentId);
+  if(files.length){ attachmentMeta[eventId] = files; }else{ delete attachmentMeta[eventId]; }
+  saveAll();
+  try{ await deleteAttachmentRecords([attachmentId]); }catch(err){ console.warn('Attachment delete failed', err); }
+  render(); refreshAttachmentSection(eventId); showToast('Document removed.');
+}
+
+// ══════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════
+let activeFilter='all', searchQuery='', currentView='calendar', statusFilter='all';
+let calYear=TODAY.getFullYear(), calMonth=TODAY.getMonth(), selDate=null, editingId=null;
+
+function isPast(ds){ return new Date(ds+'T00:00:00') < TODAY; }
+function fmtShort(ds){ const d=new Date(ds+'T00:00:00'); return (d.getMonth()+1)+'/'+d.getDate(); }
+function fmtFull(ds){ const d=new Date(ds+'T00:00:00'); return MONTHS[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear(); }
+function todayStr(){ return TODAY.getFullYear()+'-'+String(TODAY.getMonth()+1).padStart(2,'0')+'-'+String(TODAY.getDate()).padStart(2,'0'); }
+
+function getFiltered(monthKey){
+  return allEvents().filter(e=>{
+    const catOk = activeFilter==='all'||e.cat===activeFilter;
+    const q=searchQuery.toLowerCase();
+    const txtOk = !q||e.title.toLowerCase().includes(q)||(e.sub||'').toLowerCase().includes(q)||(CAT_LABELS[e.cat]||'').toLowerCase().includes(q);
+    let sfOk = true;
+    if(statusFilter!=='all'){
+      const st=getEvStatus(e.id).status;
+      if(statusFilter==='done') sfOk = st==='done';
+      if(statusFilter==='pending') sfOk = st!=='done';
+    }
+    if(monthKey) return catOk&&txtOk&&e.date.startsWith(monthKey);
+    return catOk&&txtOk&&sfOk;
+  });
+}
+
+// ══════════════════════════════════════════════
+//  STATS — month-aware
+// ══════════════════════════════════════════════
+function updateStats(){
+  const monthKey = `${calYear}-${String(calMonth+1).padStart(2,'0')}`;
+  const monthEvents = allEvents().filter(e=>e.date.startsWith(monthKey));
+  const total = monthEvents.length;
+  const done = monthEvents.filter(e=>getEvStatus(e.id).status==='done').length;
+  const pending = total - done;
+  const monthName = MONTHS[calMonth].slice(0,3) + ' ' + calYear;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statTotalSub').textContent = 'events in ' + monthName;
+  document.getElementById('statDone').textContent = done;
+  document.getElementById('statDoneSub').textContent = 'completed in ' + monthName;
+  document.getElementById('statPending').textContent = pending;
+  document.getElementById('statPendingSub').textContent = 'pending in ' + monthName;
+  // Next deadline: from all events
+  const future = allEvents().filter(e=>!isPast(e.date)&&getEvStatus(e.id).status!=='done').sort((a,b)=>a.date.localeCompare(b.date));
+  if(future.length){
+    const n=future[0], d=new Date(n.date+'T00:00:00');
+    document.getElementById('statNext').textContent=MONTHS[d.getMonth()].slice(0,3)+' '+d.getDate();
+    document.getElementById('statNextSub').textContent=n.title.slice(0,38)+(n.title.length>38?'…':'');
+  }else{
+    document.getElementById('statNext').textContent='All done!';
+    document.getElementById('statNextSub').textContent='';
+  }
+}
+
+// ══════════════════════════════════════════════
+//  VIEW TOGGLE
+// ══════════════════════════════════════════════
+function setView(v){
+  currentView=v;
+  document.getElementById('calendarView').style.display=v==='calendar'?'block':'none';
+  document.getElementById('listView').style.display=v==='list'?'block':'none';
+  document.getElementById('btnCal').classList.toggle('active',v==='calendar');
+  document.getElementById('btnList').classList.toggle('active',v==='list');
+  render();
+}
+
+// ══════════════════════════════════════════════
+//  CALENDAR RENDER
+// ══════════════════════════════════════════════
+function changeMonth(d){calMonth+=d;if(calMonth>11){calMonth=0;calYear++;}if(calMonth<0){calMonth=11;calYear--;}renderCalendar();}
+function goToday(){calYear=TODAY.getFullYear();calMonth=TODAY.getMonth();renderCalendar();}
+
+function renderCalendar(){
+  updateStats();
+  const monthKey=`${calYear}-${String(calMonth+1).padStart(2,'0')}`;
+  const allFiltered=getFiltered();
+  const evts=statusFilter==='all'?allFiltered:allFiltered.filter(e=>{
+    const st=getEvStatus(e.id).status;
+    if(statusFilter==='done') return st==='done';
+    return st!=='done';
+  });
+  const byDate={};
+  evts.forEach(e=>{if(!byDate[e.date])byDate[e.date]=[];byDate[e.date].push(e);});
+  document.getElementById('calLabel').textContent=MONTHS[calMonth]+' '+calYear;
+  const firstDay=new Date(calYear,calMonth,1).getDay();
+  const dim=new Date(calYear,calMonth+1,0).getDate();
+  const dip=new Date(calYear,calMonth,0).getDate();
+  const container=document.getElementById('calDays');
+  container.innerHTML='';
+  let cells=[];
+  for(let i=firstDay-1;i>=0;i--)cells.push({day:dip-i,cur:false});
+  for(let d=1;d<=dim;d++)cells.push({day:d,cur:true});
+  while(cells.length%7!==0)cells.push({day:cells.length-firstDay-dim+1,cur:false});
+  const todayDS = todayStr();
+  cells.forEach(({day,cur})=>{
+    const ds=cur?`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`:null;
+    const de=ds&&byDate[ds]?byDate[ds]:[];
+    const isToday=ds===todayDS;
+    const cell=document.createElement('div');
+    cell.className='cal-cell'+(cur?'':' other-month')+(isToday?' today':'')+(cur&&isPast(ds)&&!isToday?' past-cell':'');
+    if(cur)cell.onclick=()=>openDayModal(ds);
+    const num=document.createElement('div');num.className='cal-day-num';num.textContent=day;cell.appendChild(num);
+    de.slice(0,3).forEach(ev=>{
+      const st=getEvStatus(ev.id);
+      const dot=document.createElement('div');
+      dot.className='cal-event-dot cat-'+ev.cat;
+      const statusDot=document.createElement('span');
+      statusDot.className='status-dot '+(st.status==='done'?'done':'pending');
+      dot.appendChild(statusDot);
+      const txt=document.createTextNode((ev._modified?'✎ ':'')+ev.title);
+      dot.appendChild(txt);
+      dot.onclick=e=>{e.stopPropagation();openDayModal(ds);};
+      cell.appendChild(dot);
+    });
+    if(de.length>3){const m=document.createElement('div');m.className='cal-more';m.textContent='+'+(de.length-3)+' more';cell.appendChild(m);}
+    container.appendChild(cell);
+  });
+}
+
+// ══════════════════════════════════════════════
+//  LIST RENDER
+// ══════════════════════════════════════════════
+function renderList(){
+  updateStats();
+  let evts=getFiltered().sort((a,b)=>a.date.localeCompare(b.date));
+  if(statusFilter!=='all'){
+    evts=evts.filter(e=>{
+      const st=getEvStatus(e.id).status;
+      if(statusFilter==='done') return st==='done';
+      return st!=='done';
+    });
+  }
+  const grouped={};
+  evts.forEach(e=>{const m=e.date.slice(0,7);if(!grouped[m])grouped[m]=[];grouped[m].push(e);});
+  const body=document.getElementById('listBody');body.innerHTML='';
+  if(!evts.length){body.innerHTML='<div class="empty-state">No events match your filter or search.</div>';return;}
+  Object.keys(grouped).sort().forEach(ym=>{
+    const [yr,mo]=ym.split('-');
+    const es=grouped[ym];
+    const allPast=es.every(e=>isPast(e.date));
+    const doneCount=es.filter(e=>getEvStatus(e.id).status==='done').length;
+    const pendingCount=es.length-doneCount;
+    const block=document.createElement('div');
+    block.className='month-block'+(allPast?' past-month':'');
+    const hdr=document.createElement('div');
+    hdr.className='month-hdr';
+    hdr.innerHTML=`<span class="month-name">${MONTHS[parseInt(mo)-1]} ${yr}</span><span class="month-ct">${es.length} event${es.length>1?'s':''}</span>
+      <div class="month-status-btns">
+        <span class="month-stat-pill done-pill">&#10003; ${doneCount} Completed</span>
+        <span class="month-stat-pill pending-pill">&#9679; ${pendingCount} Pending</span>
+      </div>`;
+    block.appendChild(hdr);
+    const list=document.createElement('div');list.className='ev-list';
+    es.forEach(ev=>{
+      const st=getEvStatus(ev.id);
+      const row=document.createElement('div');
+      row.className='ev-row'
+        +(isPast(ev.date)?' past-ev':'')
+        +(ev._modified?' modified':'')
+        +(ev.cat==='custom'?' modified':'')
+        +(st.status==='done'?' ev-done':'')
+        +(st.status==='pending'&&isPast(ev.date)?' ev-pending':'');
+      let filedHtml='';
+      if(st.status==='done'&&st.filedAt) filedHtml=`<div class="ev-filed-ts">&#10003; Filed on ${fmtDateTime(st.filedAt)}</div>`;
+      row.innerHTML=`
+        <div class="ev-date-col">${fmtShort(ev.date)}</div>
+        <div class="ev-badge badge-${ev.cat}">${CAT_LABELS[ev.cat]||ev.cat}</div>
+        <div class="ev-info">
+          <div class="ev-title">${ev._modified?'<span style="color:var(--orange);font-size:11px;">✎ edited &nbsp;</span>':''}${escapeHtml(ev.title)}</div>
+          <div class="ev-sub">${escapeHtml(ev.sub||'')}</div>
+          ${filedHtml}
+        </div>
+        <div class="ev-actions">
+          ${renderAttachmentBadgeInline(ev.id, st.status)}
+          <button class="status-btn btn-done${st.status==='done'?' active':''}" onclick="event.stopPropagation();setEvStatus('${ev.id}','done')">&#10003; Done</button>
+          <button class="status-btn btn-pending${st.status==='pending'?' active':''}" onclick="event.stopPropagation();setEvStatus('${ev.id}','pending')">&#9679; Pending</button>
+          <button class="edit-btn-row" onclick="event.stopPropagation();openEditForm('${ev.id}',${ev._base})">&#9998; Edit</button>
+          <button class="del-btn-row" onclick="event.stopPropagation();quickDeleteEvent('${ev.id}',${ev._base},null)">&#128465; Delete</button>
+        </div>`;
+      row.onclick=()=>openDayModal(ev.date);
+      list.appendChild(row);
+    });
+    block.appendChild(list);body.appendChild(block);
+  });
+}
+
+function render(){
+  // Update category button active state
+  document.querySelectorAll('.cat-filter-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.cat === activeFilter);
+  });
+  if(currentView==='calendar') renderCalendar(); else renderList();
+}
+
+// ══════════════════════════════════════════════
+//  DAY MODAL
+// ══════════════════════════════════════════════
+function openDayModal(ds){
+  selDate=ds;
+  const d=new Date(ds+'T00:00:00');
+  document.getElementById('modalDayName').textContent=WDAYS[d.getDay()];
+  document.getElementById('modalDateTitle').textContent=fmtFull(ds);
+  const de=getFiltered().filter(e=>e.date===ds);
+  const cont=document.getElementById('modalEvents');cont.innerHTML='';
+  if(!de.length){cont.innerHTML='<div class="modal-empty">No compliance events on this date.</div>';}
+  else de.forEach(ev=>{
+    const st=getEvStatus(ev.id);
+    const card=document.createElement('div');
+    let cardClass='modal-ev-card';
+    if(ev._modified)cardClass+=' modified-card';
+    if(st.status==='done')cardClass+=' ev-card-done';
+    else if(isPast(ds))cardClass+=' ev-card-pending';
+    card.className=cardClass;
+    let filedHtml='';
+    if(st.status==='done'&&st.filedAt) filedHtml=`<div class="mc-filed">&#10003; Filed on ${fmtDateTime(st.filedAt)}</div>`;
+    card.innerHTML=`
+      <div class="mc-title">${ev._modified?'<span style="font-size:11px;color:var(--orange);">✎ edited &nbsp;</span>':''}${escapeHtml(ev.title)}</div>
+      ${ev.sub?`<div class="mc-sub">${escapeHtml(ev.sub)}</div>`:''}
+      ${filedHtml}
+      <div class="mc-meta">
+        <span class="ev-badge badge-${ev.cat}" style="font-size:10px;">${CAT_LABELS[ev.cat]||ev.cat}</span>
+        <button style="margin-left:auto;font-size:12px;padding:4px 11px;border:1.5px solid var(--border);border-radius:5px;background:transparent;cursor:pointer;color:var(--orange);font-family:'Barlow',sans-serif;font-weight:600;" onclick="openEditForm('${ev.id}',${ev._base})">&#9998; Edit</button>
+        <button style="font-size:12px;padding:4px 10px;border:1.5px solid #F5C6C5;border-radius:5px;background:#FDECEA;cursor:pointer;color:#9B2A2A;font-family:'Barlow',sans-serif;font-weight:600;" onclick="quickDeleteEvent('${ev.id}',${ev._base},'${ds}')">&#128465;</button>
+      </div>
+      <div class="modal-status-row">
+        <button class="status-btn btn-done${st.status==='done'?' active':''}" onclick="setEvStatus('${ev.id}','done');openDayModal('${ds}')">&#10003; Mark Completed</button>
+        <button class="status-btn btn-pending${st.status==='pending'?' active':''}" onclick="setEvStatus('${ev.id}','pending');openDayModal('${ds}')">&#9679; Mark Pending</button>
+      </div>
+      ${renderAttachmentPanel(ev.id, st.status)}`;
+    cont.appendChild(card);
+  });
+  document.getElementById('dayOverlay').classList.add('open');
+}
+function closeDayModal(e){if(!e||e.target===document.getElementById('dayOverlay'))document.getElementById('dayOverlay').classList.remove('open');}
+function openAddFormDate(){document.getElementById('dayOverlay').classList.remove('open');openAddForm(selDate);}
+
+// ══════════════════════════════════════════════
+//  FORM — ADD
+// ══════════════════════════════════════════════
+function openAddForm(dateStr){
+  editingId=null;
+  document.getElementById('formTitle').textContent='Add New Event';
+  document.getElementById('formNotice').style.display='none';
+  document.getElementById('fDate').value=dateStr||todayStr();
+  document.getElementById('fCat').value='custom';
+  document.getElementById('fTitle').value='';
+  document.getElementById('fSub').value='';
+  document.getElementById('fEditId').value='';
+  document.getElementById('fIsBase').value='0';
+  document.getElementById('fResetBtn').style.display='none';
+  document.getElementById('fDelBtn').style.display='none';
+  document.getElementById('formOverlay').classList.add('open');
+}
+
+// ══════════════════════════════════════════════
+//  FORM — EDIT
+// ══════════════════════════════════════════════
+function openEditForm(id, isBase){
+  document.getElementById('dayOverlay').classList.remove('open');
+  editingId=id;
+  let ev;
+  if(isBase){
+    const base=BASE.find(e=>e.id===id);
+    ev=overrides[id]?{...base,...overrides[id]}:{...base};
+  }else{
+    ev=customEvents.find(e=>e.id===id);
+  }
+  if(!ev)return;
+  document.getElementById('formTitle').textContent='Edit Event';
+  document.getElementById('formNotice').style.display=isBase?'block':'none';
+  document.getElementById('fDate').value=ev.date;
+  document.getElementById('fCat').value=ev.cat;
+  document.getElementById('fTitle').value=ev.title;
+  document.getElementById('fSub').value=ev.sub||'';
+  document.getElementById('fEditId').value=id;
+  document.getElementById('fIsBase').value=isBase?'1':'0';
+  document.getElementById('fResetBtn').style.display=isBase&&overrides[id]?'inline-flex':'none';
+  document.getElementById('fDelBtn').style.display='inline-flex';
+  document.getElementById('formOverlay').classList.add('open');
+}
+
+function closeFormModal(e){if(!e||e.target===document.getElementById('formOverlay'))document.getElementById('formOverlay').classList.remove('open');}
+
+function saveEvent(){
+  const date=document.getElementById('fDate').value;
+  const cat=document.getElementById('fCat').value;
+  const title=document.getElementById('fTitle').value.trim();
+  const sub=document.getElementById('fSub').value.trim();
+  const id=document.getElementById('fEditId').value;
+  const isBase=document.getElementById('fIsBase').value==='1';
+  if(!date||!title){alert('Please fill in Date and Event Title.');return;}
+  if(isBase){
+    overrides[id]={date,cat,title,sub};
+  }else if(id){
+    const idx=customEvents.findIndex(e=>e.id===id);
+    if(idx>-1)customEvents[idx]={id,date,cat,title,sub};
+  }else{
+    customEvents.push({id:'c'+Date.now(),date,cat,title,sub});
+  }
+  saveAll(); closeFormModal(); render();
+  if(isBase)document.getElementById('fResetBtn').style.display='inline-flex';
+}
+
+function resetBaseEvent(){
+  if(!editingId)return;
+  if(!confirm('Reset this event to its original values?'))return;
+  delete overrides[editingId]; saveAll(); closeFormModal(); render();
+}
+
+function deleteEvent(){
+  if(!editingId)return;
+  if(!confirm('Delete this event? This cannot be undone.'))return;
+  const isBase=document.getElementById('fIsBase').value==='1';
+  if(isBase){ deletedBaseIds.add(editingId); delete overrides[editingId]; }
+  else{ customEvents=customEvents.filter(e=>e.id!==editingId); }
+  delete eventStatus[editingId];
+  void purgeAttachmentsForEvent(editingId); saveAll(); closeFormModal(); render();
+}
+
+function quickDeleteEvent(id, isBase, reopenDate){
+  if(!confirm('Delete this event?'))return;
+  if(isBase){ deletedBaseIds.add(id); delete overrides[id]; }
+  else{ customEvents=customEvents.filter(e=>e.id!==id); }
+  delete eventStatus[id];
+  void purgeAttachmentsForEvent(id); saveAll();
+  if(reopenDate){ document.getElementById('dayOverlay').classList.remove('open'); render(); setTimeout(()=>openDayModal(reopenDate),50); }
+  else{ render(); }
+}
+
+// ══════════════════════════════════════════════
+//  EXPORT
+// ══════════════════════════════════════════════
+function openExport(){document.getElementById('expOverlay').classList.add('open');}
+function closeExport(e){if(!e||e.target===document.getElementById('expOverlay'))document.getElementById('expOverlay').classList.remove('open');}
+
+function getExportData(){
+  const scope=document.querySelector('input[name="expScope"]:checked').value;
+  let evts=allEvents().sort((a,b)=>a.date.localeCompare(b.date));
+  if(scope==='upcoming')evts=evts.filter(e=>!isPast(e.date));
+  if(scope==='filtered')evts=getFiltered().sort((a,b)=>a.date.localeCompare(b.date));
+  return evts;
+}
+
+function doExport(fmt){
+  const evts=getExportData();
+  if(!evts.length){ showToast('No events to export.', true); closeExport(); return; }
+  const rows=evts.map(e=>{
+    const st=getEvStatus(e.id);
+    return {
+      'Date':e.date,'Day':WDAYS[new Date(e.date+'T00:00:00').getDay()],
+      'Category':CAT_LABELS[e.cat]||e.cat,'Event Title':e.title,'Description':e.sub||'',
+      'Completion Status':st.status==='done'?'Completed':'Pending',
+      'Filed On':st.filedAt?fmtDateTime(st.filedAt):'—',
+      'Modified':e._modified?'Yes':'No','Type':e._base?'Built-in':'Custom',
+      'Attachment Count':getAttachmentList(e.id).length,
+      'Attachments':getAttachmentList(e.id).map(f=>f.name).join('; '),
+    };
+  });
+
+  if(fmt==='csv'){
+    const headers=Object.keys(rows[0]);
+    const csv=[headers.join(','),...rows.map(r=>headers.map(h=>`"${(r[h]||'').toString().replace(/"/g,'""')}"`).join(','))].join('\n');
+    const blob=new Blob([csv],{type:'text/csv'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Roots_Multiclean_Compliance.csv';a.click();
+  } else {
+    const ws=XLSX.utils.json_to_sheet(rows);
+    ws['!cols']=[{wch:12},{wch:10},{wch:14},{wch:52},{wch:55},{wch:14},{wch:22},{wch:9},{wch:9},{wch:16},{wch:40}];
+    const wb=XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,'Compliance Calendar');
+    XLSX.writeFile(wb,'Roots_Multiclean_Compliance.xlsx');
+  }
+  closeExport();
+}
+
+// ══════════════════════════════════════════════
+//  CATEGORY FILTER
+// ══════════════════════════════════════════════
+function setCategoryFilter(cat){
+  activeFilter=cat;
+  render();
+}
+
+// ══════════════════════════════════════════════
+//  IMPORT — FIXED
+// ══════════════════════════════════════════════
+function openImport(){
+  document.getElementById('importPreview').style.display='none';
+  document.getElementById('importPreview').innerHTML='';
+  document.getElementById('importFileInput').value='';
+  document.getElementById('importOverlay').classList.add('open');
+}
+function closeImport(e){
+  if(!e||e.target===document.getElementById('importOverlay'))
+    document.getElementById('importOverlay').classList.remove('open');
+}
+
+function downloadImportTemplate(){
+  if(typeof XLSX === 'undefined'){ showToast('Excel library not loaded yet, please wait a moment and try again.', true); return; }
+  try{
+    const wb = XLSX.utils.book_new();
+    const headers = ['Date','Category','Event Title','Description / Notes','Status'];
+    const hint    = ['YYYY-MM-DD e.g. 2026-07-15','federal / payroll / sales / state / labor / license / insurance / custom','Full event name','Additional details (optional)','pending / done (blank = pending)'];
+    const sample1 = ['2026-07-15','payroll','Monthly payroll tax deposit (June 2026)','EFTPS deposit','pending'];
+    const sample2 = ['2026-08-01','custom','Quarterly safety briefing','Review OSHA updates with staff','pending'];
+    const wsData = [headers, hint, sample1, sample2];
+    for(let i=0;i<20;i++) wsData.push(['','','','','']);
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+    ws['!cols'] = [{wch:14},{wch:16},{wch:45},{wch:45},{wch:12}];
+    XLSX.utils.book_append_sheet(wb, ws, 'Events Template');
+    const refData = [
+      ['Column','Valid Values','Notes'],
+      ['Date','Any date','Format: YYYY-MM-DD'],
+      ['Category','federal','Federal IRS tax events'],
+      ['','payroll','Payroll / TDS deposits & returns'],
+      ['','sales','Sales tax filings'],
+      ['','state','State income tax'],
+      ['','labor','Labor / OSHA compliance'],
+      ['','license','Business licenses & permits'],
+      ['','insurance','Insurance reviews & audits'],
+      ['','custom','Any custom / internal event'],
+      ['Status','pending','Not yet completed (default)'],
+      ['','done','Already completed'],
+    ];
+    const ws2 = XLSX.utils.aoa_to_sheet(refData);
+    ws2['!cols'] = [{wch:14},{wch:16},{wch:38}];
+    XLSX.utils.book_append_sheet(wb, ws2, 'Reference');
+    XLSX.writeFile(wb,'Roots_Compliance_Import_Template.xlsx');
+  }catch(err){
+    showToast('Could not generate template: ' + err.message, true);
+  }
+}
+
+function handleImportDrop(e){
+  e.preventDefault();
+  document.getElementById('importDropZone').style.borderColor='var(--border)';
+  document.getElementById('importDropZone').style.background='var(--bg)';
+  const file = e.dataTransfer.files[0];
+  if(file) handleImportFile(file);
+}
+
+function handleImportFile(file){
+  if(!file) return;
+  if(!file.name.toLowerCase().endsWith('.xlsx')){
+    showImportResult('error','Please upload an .xlsx file.');
+    return;
+  }
+  if(typeof XLSX === 'undefined'){
+    showImportResult('error','Excel library is still loading. Please wait a moment and try again.');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onerror = function(){ showImportResult('error','Failed to read the file.'); };
+  reader.onload = function(ev){
+    try{
+      const data = new Uint8Array(ev.target.result);
+      const wb = XLSX.read(data, {type:'array', cellDates:true});
+      if(!wb || !wb.SheetNames || wb.SheetNames.length === 0){
+        showImportResult('error','Could not read the workbook. Please use a valid .xlsx file.');
+        return;
+      }
+      // Find the sheet with event data (prefer "Events Template" sheet, or first sheet)
+      const sheetName = wb.SheetNames.find(n=>n.toLowerCase().includes('event')||n.toLowerCase().includes('template')) || wb.SheetNames[0];
+      const ws = wb.Sheets[sheetName];
+      if(!ws){ showImportResult('error','Could not find a valid sheet in the file.'); return; }
+
+      const rows = XLSX.utils.sheet_to_json(ws, {header:1, defval:'', raw:false});
+      if(!rows || rows.length < 2){ showImportResult('error','File appears empty.'); return; }
+
+      // Find header row (look for "Date" in first 5 rows)
+      let headerRow = -1;
+      for(let i=0;i<Math.min(5,rows.length);i++){
+        const r = rows[i].map(c=>String(c||'').toLowerCase().trim());
+        if(r.some(c=>c.includes('date')) && r.some(c=>c.includes('title')||c.includes('event'))){
+          headerRow=i; break;
+        }
+      }
+      if(headerRow===-1){
+        showImportResult('error','Could not find header row. Make sure your file has "Date" and "Event Title" (or "Title") columns.');
+        return;
+      }
+
+      const hdr = rows[headerRow].map(c=>String(c||'').toLowerCase().replace(/[^a-z]/g,''));
+      const idx = {
+        date:    hdr.findIndex(h=>h==='date'||h.startsWith('date')),
+        cat:     hdr.findIndex(h=>h.includes('cat')||h==='category'),
+        title:   hdr.findIndex(h=>h.includes('title')||h.includes('event')&&!h.includes('date')),
+        sub:     hdr.findIndex(h=>h.includes('desc')||h.includes('note')),
+        status:  hdr.findIndex(h=>h.includes('status')||h.includes('complet')),
+      };
+      if(idx.date===-1) idx.date=0;
+      if(idx.cat===-1) idx.cat=1;
+      if(idx.title===-1) idx.title=2;
+
+      const VALID_CATS = ['federal','payroll','sales','state','labor','license','insurance','custom'];
+      let imported=0, skipped=0, errors=[];
+      const newEvents=[];
+
+      for(let r=headerRow+2; r<rows.length; r++){
+        const row = rows[r];
+        if(!row || row.every(c=>c===''||c===null||c===undefined)) continue;
+
+        let dateVal = idx.date>=0 ? String(row[idx.date]||'').trim() : '';
+        // Handle Excel serial date numbers
+        if(dateVal && !isNaN(Number(dateVal)) && Number(dateVal) > 40000){
+          const serial = Number(dateVal);
+          const jsDate = new Date(Math.round((serial - 25569)*86400*1000));
+          dateVal = jsDate.toISOString().slice(0,10);
+        }
+        // Normalise date separators
+        dateVal = dateVal.replace(/\//g,'-').replace(/\./g,'-');
+        // Handle DD-MM-YYYY or MM-DD-YYYY -> YYYY-MM-DD
+        if(/^\d{2}-\d{2}-\d{4}$/.test(dateVal)){
+          const parts = dateVal.split('-');
+          dateVal = `${parts[2]}-${parts[1]}-${parts[0]}`;
+        }
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(dateVal)){
+          if(dateVal) errors.push(`Row ${r+1}: invalid date "${dateVal}" — skipped`);
+          skipped++; continue;
+        }
+
+        let cat = idx.cat>=0 ? String(row[idx.cat]||'').trim().toLowerCase() : 'custom';
+        if(!VALID_CATS.includes(cat)) cat='custom';
+
+        let title = idx.title>=0 ? String(row[idx.title]||'').trim() : '';
+        if(!title){ skipped++; continue; }
+
+        let sub = idx.sub>=0 ? String(row[idx.sub]||'').trim() : '';
+        let statusRaw = idx.status>=0 ? String(row[idx.status]||'').trim().toLowerCase() : 'pending';
+        let status = statusRaw==='done'||statusRaw.includes('complet') ? 'done' : 'pending';
+
+        const id = 'imp_'+Date.now()+'_'+r;
+        newEvents.push({id, date:dateVal, cat, title, sub, _base:false, _modified:false});
+        if(status==='done') eventStatus[id]={status:'done', filedAt:new Date().toISOString()};
+        imported++;
+      }
+
+      if(imported===0){
+        showImportResult('error', `No valid events found. ${errors.length?'Issues: '+errors.slice(0,3).join('; '):'Check your file format — ensure the hint row (row 2) is present and data starts on row 3.'}`);
+        return;
+      }
+
+      showImportPreview(newEvents, imported, skipped, errors);
+
+    }catch(err){
+      showImportResult('error','Failed to read the file: '+err.message);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function showImportPreview(newEvents, imported, skipped, errors){
+  let html = `
+    <div style="background:#EDF5F0;border:1.5px solid #B8DFC4;border-radius:10px;padding:1rem;margin-bottom:10px;">
+      <div style="font-size:14px;font-weight:700;color:#1A5C2A;font-family:'Barlow',sans-serif;">&#10003; Ready to import ${imported} event${imported>1?'s':''}</div>
+      ${skipped?`<div style="font-size:12px;color:#8A4D0C;margin-top:3px;">${skipped} row(s) skipped</div>`:''}
+      ${errors.length?`<div style="font-size:11px;color:#9B2A2A;margin-top:3px;">${errors.slice(0,2).map(escapeHtml).join('<br>')}</div>`:''}
+    </div>
+    <div style="max-height:180px;overflow-y:auto;border:1px solid var(--border);border-radius:8px;margin-bottom:12px;">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead><tr style="background:var(--surface2);">
+          <th style="padding:6px 8px;text-align:left;font-weight:700;color:var(--muted);">Date</th>
+          <th style="padding:6px 8px;text-align:left;font-weight:700;color:var(--muted);">Category</th>
+          <th style="padding:6px 8px;text-align:left;font-weight:700;color:var(--muted);">Title</th>
+        </tr></thead>
+        <tbody>`;
+  newEvents.slice(0,10).forEach(ev=>{
+    html+=`<tr style="border-top:1px solid var(--border);">
+      <td style="padding:5px 8px;color:var(--muted);">${ev.date}</td>
+      <td style="padding:5px 8px;"><span class="ev-badge badge-${ev.cat}" style="font-size:10px;">${CAT_LABELS[ev.cat]||ev.cat}</span></td>
+      <td style="padding:5px 8px;color:var(--dark);">${escapeHtml(ev.title.slice(0,40))}${ev.title.length>40?'…':''}</td>
+    </tr>`;
+  });
+  if(newEvents.length>10) html+=`<tr><td colspan="3" style="padding:5px 8px;color:var(--muted);font-style:italic;">… and ${newEvents.length-10} more</td></tr>`;
+  html+=`</tbody></table></div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;">
+      <button onclick="closeImport()" style="font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;padding:8px 15px;border:1.5px solid var(--border);border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;">Cancel</button>
+      <button onclick="confirmImport(${JSON.stringify(newEvents).replace(/"/g,'&quot;')})" style="font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;padding:8px 18px;border:none;border-radius:8px;background:var(--orange);color:#fff;cursor:pointer;">&#10003; Import ${imported} Event${imported>1?'s':''}</button>
+    </div>`;
+  const preview = document.getElementById('importPreview');
+  preview.innerHTML = html;
+  preview.style.display = 'block';
+}
+
+function confirmImport(newEvents){
+  newEvents.forEach(ev=>{ customEvents.push(ev); });
+  saveAll(); closeImport(); render();
+  showToast(`✓ ${newEvents.length} event${newEvents.length>1?'s':''} imported successfully`);
+}
+
+function showImportResult(type, msg){
+  const preview = document.getElementById('importPreview');
+  const bg = type==='error'?'#FDECEA':'#EDF5F0';
+  const border = type==='error'?'#F5C6C5':'#B8DFC4';
+  const color = type==='error'?'#9B2A2A':'#1A5C2A';
+  preview.innerHTML=`<div style="background:${bg};border:1.5px solid ${border};border-radius:10px;padding:1rem;font-size:13px;color:${color};font-family:'Barlow',sans-serif;font-weight:600;">${type==='error'?'⚠ ':'✓ '}${escapeHtml(msg)}</div>`;
+  preview.style.display='block';
+}
+
+// ══════════════════════════════════════════════
+//  EVENT LISTENERS
+// ══════════════════════════════════════════════
+document.getElementById('statusFilter').addEventListener('change',e=>{statusFilter=e.target.value;render();});
+document.getElementById('searchInput').addEventListener('input',e=>{searchQuery=e.target.value;render();});
+document.getElementById('attachmentInput').addEventListener('change',e=>handleAttachmentSelection(e.target.files));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.getElementById('dayOverlay').classList.remove('open');
+    document.getElementById('formOverlay').classList.remove('open');
+    document.getElementById('expOverlay').classList.remove('open');
+    document.getElementById('importOverlay').classList.remove('open');
+  }
+});
+
+render();
+</script>
+</body>
+</html>
